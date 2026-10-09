@@ -62,6 +62,53 @@ The time complexity of this code is O(2^n)
 makes one recursive call for everyvalue of num.
  */
 
+public static void helloWorld(int n)
+{
+    if (n <= 0 )
+        return;
+
+    System.out.println("Hello World");
+    helloWorld(n-1);
+}
+
+/*
+The time complexity of this code is O(n)
+makes one recursive call for everyvalue of num.
+ */
+
+public static int sumMultipleOf7(int n1, int n2)
+{
+    if (n1 > n2)
+        return 0;
+
+    if ( n1 % 7 == 0)
+        return n1 + sumMultipleOf7(n1 + 1, n2);
+
+    return sumMultipleOf7(n1 + 1, n2);
+}
+
+/*
+The time complexity of this code is O(2n)
+makes one recursive call for everyvalue of n1 & n2.
+ */
+
+
+public static int binarySearch(int[] arr, int target, int left, int right)
+{
+    if (left > right)
+        return -1;
+
+
+    int mid = left + (right - left) / 2;
+
+    if (arr[mid] == target)
+        return mid;
+
+    if (target < arr[mid])
+        return binarySearch(arr, target, left, mid -1);
+
+    return binarySearch(arr, target, mid + 1, right);
+}
 
 
 public static void main (String[] args)
